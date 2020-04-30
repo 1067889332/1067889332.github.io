@@ -25,6 +25,27 @@
 <meta property="article:tag" content="游戏回顾">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!-- 一言API -->
+<!-- 现代写法，推荐 -->
+<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<!--End-->
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+  
   <style>
       .nexmoe-copyright {
         padding: 0 30px;
@@ -69,7 +90,7 @@
 }
   </style>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1588205685790">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1588206378135">-->
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -89,6 +110,9 @@
   </div>
   <div id="nexmoe-header">
       <div class="nexmoe-drawer mdui-drawer" id="drawer">
+
+<p id="hitokoto">正在加载一言...</p>
+
     <div class="nexmoe-avatar mdui-ripple">
         <a href="/" title="烧饼">
             <img src="/Head.jpg" alt="烧饼" alt="烧饼">
@@ -273,7 +297,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1588205685792"></script>-->
+<!--<script src="/js/app.js?v=1588206378138"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
